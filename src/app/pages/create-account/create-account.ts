@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AccountService } from '../services/account-service';
+import { AccountService } from '../../services/account/account-service';
 import { finalize } from 'rxjs';
-import { MaskHelper } from '../../helpers/MaskHelper';
+import { MaskHelper } from '../../../helpers/MaskHelper';
 
 @Component({
   selector: 'app-create-account',
