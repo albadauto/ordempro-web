@@ -1,0 +1,108 @@
+<div class="p-6 ">
+  @if(messageForm){
+    <div class="bg-green-200 p-6 rounded-lg shadow-2xl font-bold mb-5">
+      {{ messageForm }}
+    </div>
+  }
+
+  <div class="flex justify-between items-center mb-2">
+    <h1 class="text-2xl font-bold">Ordens de Serviço</h1>
+    <a class="bg-[#050a30] text-white px-4 py-2 rounded-xl hover:bg-black" routerLink="/services-order/new">
+      Nova Ordem
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+    <!-- Card 1 -->
+    <div class="bg-gray-100 shadow-2xl rounded-2xl p-4 space-y-3">
+      <div class="flex justify-between items-center">
+        <h2 class="font-semibold text-lg">#1</h2>
+        <span class="bg-yellow-100 text-yellow-700 text-sm px-2 py-1 rounded-full">
+          Em andamento
+        </span>
+      </div>
+
+      <div>
+        <p class="text-sm text-gray-500">Cliente</p>
+        <p class="font-medium">João Silva</p>
+      </div>
+
+      <div>
+        <p class="text-sm text-gray-500">Serviço</p>
+        <p class="font-medium">Manutenção de Ar Condicionado</p>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <p class="text-sm text-gray-500">25/03/2026</p>
+        <div class="flex gap-2">
+          <button class="border px-3 py-1 rounded-lg text-sm">Ver</button>
+          <button class="bg-[#050a30] text-white px-3 py-1 rounded-lg text-sm hover:bg-gray-700">
+            Editar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-gray-100 shadow-2xl rounded-2xl p-4 space-y-3">
+      <div class="flex justify-between items-center">
+        <h2 class="font-semibold text-lg">#2</h2>
+        <span class="bg-green-100 text-green-700 text-sm px-2 py-1 rounded-full">
+          Concluído
+        </span>
+      </div>
+
+      <div>
+        <p class="text-sm text-gray-500">Cliente</p>
+        <p class="font-medium">Maria Souza</p>
+      </div>
+
+      <div>
+        <p class="text-sm text-gray-500">Serviço</p>
+        <p class="font-medium">Instalação Elétrica</p>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <p class="text-sm text-gray-500">24/03/2026</p>
+        <div class="flex gap-2">
+          <button class="border px-3 py-1 rounded-lg text-sm">Ver</button>
+          <button class="bg-[#050a30] text-white px-3 py-1 rounded-lg text-sm hover:bg-gray-700">
+            Editar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-gray-100 shadow-2xl rounded-2xl p-4 space-y-3">
+      <div class="flex justify-between items-center">
+        <h2 class="font-semibold text-lg">#3</h2>
+        <span class="bg-red-100 text-red-700 text-sm px-2 py-1 rounded-full">
+          Pendente
+        </span>
+      </div>
+
+      <div>
+        <p class="text-sm text-gray-500">Cliente</p>
+        <p class="font-medium">Carlos Lima</p>
+      </div>
+
+      <div>
+        <p class="text-sm text-gray-500">Serviço</p>
+        <p class="font-medium">Reparo Hidráulico</p>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <p class="text-sm text-gray-500">26/03/2026</p>
+        <div class="flex gap-2">
+          <button class="border px-3 py-1 rounded-lg text-sm">Ver</button>
+          <button class="bg-[#050a30] text-white px-3 py-1 rounded-lg text-sm hover:bg-gray-700">
+            Editar
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

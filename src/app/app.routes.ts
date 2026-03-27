@@ -5,6 +5,8 @@ import { Main } from './pages/main/main';
 import { authGuard } from './guards/auth-guard';
 import { Customers } from './pages/customers/customers';
 import { Customersform } from './pages/customersform/customersform';
+import { ServiceOrder } from './pages/service-order/service-order';
+import { ServiceOrderForm } from './pages/service-order-form/service-order-form';
 
 export const routes: Routes = [
   { path: '', component: Login },
@@ -13,4 +15,6 @@ export const routes: Routes = [
   { path: 'customers', component: Customers, canActivate:[authGuard]},
   { path: 'customers/new', component: Customersform, canActivate:[authGuard]},
   { path: 'customers/edit/:id', component: Customersform, canActivate:[authGuard]},
+  { path: 'services-order', component: ServiceOrder, canActivate:[authGuard]},
+  { path: 'services-order/new', component: ServiceOrderForm, canActivate:[authGuard]},
 ];

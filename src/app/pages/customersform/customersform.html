@@ -19,6 +19,16 @@
           <input type="text"
                  class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#050a30] focus:outline-none"
                  placeholder="Digite o nome completo" formControlName="name"/>
+          @if (form.get('name')?.invalid && form.get('name')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('name')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
+
         </div>
 
         <!-- Email -->
@@ -27,6 +37,16 @@
           <input type="email"
                  class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#050a30] focus:outline-none"
                  placeholder="email@exemplo.com" formControlName="email"/>
+
+          @if (form.get('email')?.invalid && form.get('email')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('email')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
         </div>
 
         <!-- WhatsApp -->
@@ -35,6 +55,16 @@
           <input type="text"
                  class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#050a30] focus:outline-none"
                  placeholder="(11) 99999-9999" formControlName="whatsapp" (input)="onPhoneInput()"/>
+
+          @if (form.get('whatsapp')?.invalid && form.get('whatsapp')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('whatsapp')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
         </div>
 
         <!-- Endereço -->
@@ -43,6 +73,15 @@
           <input type="text"
                  class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#050a30] focus:outline-none"
                  placeholder="Rua, bairro, cidade..." formControlName="address"/>
+          @if (form.get('address')?.invalid && form.get('address')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('address')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
         </div>
 
         <!-- Número -->
@@ -51,6 +90,16 @@
           <input type="text"
                  class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#050a30] focus:outline-none"
                  placeholder="Ex: 123" formControlName="number"/>
+
+          @if (form.get('number')?.invalid && form.get('number')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('number')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
         </div>
 
         <!-- Botões -->
