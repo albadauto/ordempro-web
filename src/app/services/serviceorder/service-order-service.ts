@@ -26,4 +26,11 @@ export class ServiceOrderService {
 
     return this.http.post(`${this.apiUrl}/serviceorder/create-order`, data, { headers: headers })
   }
+
+  gelAllServiceOrder(): Observable<any>{
+    const headers = new HttpHeaders({ Authorization: `Bearer ${localStorage.getItem('token')}` });
+    const idTenant = localStorage.getItem('tenant');
+    return this.http.get(`${this.apiUrl}/serviceorder/get-all-os/${idTenant}`, { headers: headers })
+  }
+
 }

@@ -1,4 +1,6 @@
-
+@if(isLoading){
+  <p>Carregando...</p>
+}@else{
   <div class="p-4 bg-white flex items-center justify-center">
 
     <div class="bg-gray-100 shadow-2xl rounded-2xl p-6 w-full max-w-lg space-y-5">
@@ -29,16 +31,16 @@
           @if(isLoading){
             <p class="text-sm text-gray-400 mt-2">Carregando status...</p>
           } @else {
-          <select class="w-full appearance-none p-3 pr-10 bg-white border border-gray-300 rounded-xl shadow-sm
+            <select class="w-full appearance-none p-3 pr-10 bg-white border border-gray-300 rounded-xl shadow-sm
                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
                    transition text-gray-700" formControlName="statusId">
-            <option value="">Selecione o status</option>
-            @for (s of status; track s.id) {
-              <option [value]="s.id">
-                {{ s.title }}
-              </option>
-            }
-          </select>
+              <option value="">Selecione o status</option>
+              @for (s of status; track s.id) {
+                <option [value]="s.id">
+                  {{ s.title }}
+                </option>
+              }
+            </select>
           }
         </div>
 
@@ -51,8 +53,8 @@
         </div>
 
         <div class="flex justify-end gap-3 pt-3">
-          <button type="button" class="px-4 py-2 rounded-xl border text-gray-600 hover:bg-gray-200 transition">Cancelar</button>
-          <button type="submit" class="px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 shadow-md transition">Salvar</button>
+          <button type="button" class="px-4 py-2 rounded-xl border text-gray-600 hover:bg-gray-200 transition" routerLink="/services-order">Cancelar</button>
+          <button type="submit" class="px-4 py-2 rounded-xl bg-[#050a30] text-white hover:bg-gray-400 shadow-md transition">Salvar</button>
         </div>
 
       </form>
@@ -60,4 +62,6 @@
     </div>
 
   </div>
+
+}
 

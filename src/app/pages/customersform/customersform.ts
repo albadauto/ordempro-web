@@ -58,7 +58,6 @@ export class Customersform {
       this.form.markAllAsTouched();
       return;
     }
-    console.log(localStorage.getItem('tenant'));
     this.isLoading = true;
     if (this.id) {
       this.custumerService.updateCustomer(this.id, this.form.value).subscribe({
@@ -71,6 +70,7 @@ export class Customersform {
         },
       });
     } else {
+      console.log(this.form.value)
       this.custumerService.createCustomer(this.form.value).subscribe({
         next: (data) => {
           this.isLoading = false;

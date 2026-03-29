@@ -2,13 +2,13 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { ServiceOrderService } from '../../services/serviceorder/service-order-service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
 import { MessageService } from '../../services/message/message-service';
 import { CustomerService } from '../../services/customers/customer-service';
 
 @Component({
   selector: 'app-service-order-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './service-order-form.html',
   styleUrl: './service-order-form.css',
 })
