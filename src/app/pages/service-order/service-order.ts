@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ServiceOrderService } from '../../services/serviceorder/service-order-service';
 import { MessageService } from '../../services/message/message-service';
 import { FormGroup } from '@angular/forms';
@@ -19,6 +19,7 @@ export class ServiceOrder {
     private serviceOrderService: ServiceOrderService,
     private messageService: MessageService,
     private cdr: ChangeDetectorRef,
+    private route: Router
   ) {}
 
   ngOnInit() {
@@ -33,12 +34,17 @@ export class ServiceOrder {
     this.isLoading = true;
     this.serviceOrderService.gelAllServiceOrder().subscribe({
       next: (data) => {
-        this.serviceOrders = data;
+        this.serviceOrders = data.sort((a: any, b: any) => b.id - a.id);
         this.isLoading = false;
         this.cdr.detectChanges();
       },
     });
   }
+
+  editService(orderNumber: any){
+    this.route.navigate(['/services-order/edit', orderNumber])
+  }
+
 
   getBadgeClass(id: number): string {
     switch (id) {

@@ -1,17 +1,13 @@
-@if(isLoading){
+@if (isLoading) {
   <p>Carregando...</p>
-}@else{
+} @else {
   <div class="p-4 bg-white flex items-center justify-center">
-
     <div class="bg-gray-100 shadow-2xl rounded-2xl p-6 w-full max-w-lg space-y-5">
-
       <h1 class="text-xl font-bold text-gray-800">Cadastro de Ordem de serviço</h1>
-
       <form class="space-y-4" (submit)="submit()" [formGroup]="form">
-
         <div>
           <label class="text-sm text-gray-600">Cliente</label>
-          @if(isLoading){
+          @if (isLoading) {
             <p class="text-sm text-gray-400 mt-2">Carregando cliente...</p>
           } @else {
             <select class="w-full appearance-none p-3 pr-10 bg-white border border-gray-300 rounded-xl shadow-sm
@@ -28,7 +24,7 @@
         </div>
         <div>
           <label class="text-sm text-gray-600">Status</label>
-          @if(isLoading){
+          @if (isLoading) {
             <p class="text-sm text-gray-400 mt-2">Carregando status...</p>
           } @else {
             <select class="w-full appearance-none p-3 pr-10 bg-white border border-gray-300 rounded-xl shadow-sm
@@ -43,25 +39,30 @@
             </select>
           }
         </div>
-
-
         <div>
           <label class="text-sm text-gray-600">Observações</label>
           <textarea rows="3" class="w-full mt-1 p-3 bg-white border border-gray-300 rounded-xl
          shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500
          focus:border-transparent transition" placeholder="Detalhes adicionais..." formControlName="obs"></textarea>
         </div>
-
         <div class="flex justify-end gap-3 pt-3">
-          <button type="button" class="px-4 py-2 rounded-xl border text-gray-600 hover:bg-gray-200 transition" routerLink="/services-order">Cancelar</button>
-          <button type="submit" class="px-4 py-2 rounded-xl bg-[#050a30] text-white hover:bg-gray-400 shadow-md transition">Salvar</button>
+          <button type="button" class="px-4 py-2 rounded-xl border text-gray-600 hover:bg-gray-200 transition"
+                  routerLink="/services-order">Voltar
+          </button>
+          @if (!isReadOnly) {
+            <button type="submit"
+                    class="px-4 py-2 rounded-xl bg-[#050a30] text-white hover:bg-gray-400 shadow-md transition">Salvar
+            </button>
+            @if (this.id) {
+              <button type="submit"
+                      class="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-gray-400 shadow-md transition"
+                      (click)="deleteService(this.id)">Excluir
+              </button>
+            }
+          }
         </div>
-
       </form>
-
     </div>
-
   </div>
-
 }
 

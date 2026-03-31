@@ -10,7 +10,7 @@ export class MessageService {
     this.message = msg;
   }
 
-  getMessage(){
+  getMessage(): string | null {
     const msg = this.message;
     this.message = null;
     return msg;
