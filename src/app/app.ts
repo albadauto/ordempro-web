@@ -11,6 +11,11 @@ import { AsyncPipe } from '@angular/common';
 })
 export class App {
   protected readonly title = signal('ordem-pro-web');
+  isOpen = false;
+
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
   open = false;
   constructor(public authService: AuthService) {}
 }

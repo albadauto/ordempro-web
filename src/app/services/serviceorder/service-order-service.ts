@@ -57,4 +57,12 @@ export class ServiceOrderService {
     return this.http.put(`${this.apiUrl}/serviceorder/edit/${id}`, data, { headers: headers })
   }
 
+  getOSDelivered(data: any){
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.bearer}`,
+    })
+
+    return this.http.post(`${this.apiUrl}/serviceorder/get-os-delivered`, data, { headers: headers })
+  }
+
 }

@@ -50,15 +50,15 @@
                   routerLink="/services-order">Voltar
           </button>
           @if (!isReadOnly) {
-            <button type="submit"
-                    class="px-4 py-2 rounded-xl bg-[#050a30] text-white hover:bg-gray-400 shadow-md transition">Salvar
-            </button>
             @if (this.id) {
               <button type="submit"
                       class="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-gray-400 shadow-md transition"
                       (click)="deleteService(this.id)">Excluir
               </button>
             }
+            <button type="submit"
+                    class="px-4 py-2 rounded-xl bg-[#050a30] text-white hover:bg-gray-400 shadow-md transition">Salvar
+            </button>
           }
         </div>
       </form>

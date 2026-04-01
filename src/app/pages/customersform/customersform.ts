@@ -70,7 +70,6 @@ export class Customersform {
         },
       });
     } else {
-      console.log(this.form.value)
       this.custumerService.createCustomer(this.form.value).subscribe({
         next: (data) => {
           this.isLoading = false;
