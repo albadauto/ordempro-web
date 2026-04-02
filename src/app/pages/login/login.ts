@@ -42,9 +42,7 @@ export class Login {
     this.loginService.login(this.form.value).subscribe({
       next: (data) => {
         this.routeTransfer.navigate(['/main']);
-        this.authService.login();
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('tenant', data.idTenant);
+        this.authService.login(data.token, data.idTenant);
       },
       error: (err) => {
         this.loginFailed.set(true);

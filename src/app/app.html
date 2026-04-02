@@ -1,4 +1,4 @@
-@if (authService.auth$ | async) {
+@if (isLoggedIn$ | async) {
   <div class="min-h-screen bg-gray-100 flex p-4 gap-4">
 
     <!-- Overlay (mobile) -->

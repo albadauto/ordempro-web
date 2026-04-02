@@ -3,7 +3,6 @@ import { ServiceOrderService } from '../../services/serviceorder/service-order-s
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -36,8 +35,8 @@ export class ServiceOrderForm {
     private customerService: CustomerService,
   ) {
     this.form = this.fb.group({
-      id: [null, Validators.required],
-      orderNumber: [null, Validators.required],
+      id: [null],
+      orderNumber: [null],
       customerId: ['', Validators.required],
       obs: ['', [Validators.required]],
       tenantId: localStorage.getItem('tenant'),
@@ -87,12 +86,15 @@ export class ServiceOrderForm {
   }
 
   deleteService(id: any) {
-    this.serviceOrder.deleteServiceOrder(id).subscribe({
-      next: (data) => {
-        this.router.navigate(['/services-order']);
-        this.messageService.setMessage('Excluido com sucesso!');
-      },
-    });
+    if(confirm("Tem certeza que deseja excluir este registro?")){
+      this.serviceOrder.deleteServiceOrder(id).subscribe({
+        next: (data) => {
+          this.router.navigate(['/services-order']);
+          this.messageService.setMessage('Excluido com sucesso!');
+        },
+      });
+    }
+
   }
 
   getAllCustomers() {
@@ -111,7 +113,20 @@ export class ServiceOrderForm {
   }
 
   submit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     if (this.id) {
+      if(this.form.get('statusId')?.value == 6){
+        if(confirm("Tem certeza que deseja marcar essa OS como entregue?" +
+          " A mesma não aparecerá nos cards de fluxo de trabalho após confirmação")){
+          alert("Você poderá consultar essa OS na rotina Ordens Entregues")
+        }else{
+          return;
+        }
+      }
+
       this.serviceOrder.editService(this.id, this.form.value).subscribe({
         next: () => {
           this.router.navigate(['/services-order']);
@@ -124,7 +139,6 @@ export class ServiceOrderForm {
           this.router.navigate(['/services-order']);
         },
         error: (error) => {
-          console.log(this.form.value);
           console.log(error);
         },
       });

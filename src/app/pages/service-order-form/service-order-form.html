@@ -21,6 +21,15 @@
               }
             </select>
           }
+          @if (form.get('customerId')?.invalid && form.get('customerId')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('customerId')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
         </div>
         <div>
           <label class="text-sm text-gray-600">Status</label>
@@ -38,12 +47,30 @@
               }
             </select>
           }
+          @if (form.get('statusId')?.invalid && form.get('statusId')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('statusId')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
         </div>
         <div>
           <label class="text-sm text-gray-600">Observações</label>
           <textarea rows="3" class="w-full mt-1 p-3 bg-white border border-gray-300 rounded-xl
          shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500
          focus:border-transparent transition" placeholder="Detalhes adicionais..." formControlName="obs"></textarea>
+          @if (form.get('obs')?.invalid && form.get('obs')?.touched) {
+            <small>
+              <div class="error-container">
+                @if (form.get('obs')?.hasError('required')) {
+                  <small>O campo é obrigatório.</small>
+                }
+              </div>
+            </small>
+          }
         </div>
         <div class="flex justify-end gap-3 pt-3">
           <button type="button" class="px-4 py-2 rounded-xl border text-gray-600 hover:bg-gray-200 transition"
