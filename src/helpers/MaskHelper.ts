@@ -21,19 +21,21 @@ export class MaskHelper {
   maskPhone(value: string): string {
     if (!value) return '';
 
-    value = value.replace(/\D/g, '');
-    value = value.substring(0, 11);
+    let numbers = value.replace(/\D/g, '');
 
-    value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+    numbers = numbers.substring(0, 11);
 
-    if (value.length <= 14) {
-      // telefone fixo (8 dígitos)
-      value = value.replace(/(\d{4})(\d)/, '$1-$2');
-    } else {
-      // celular (9 dígitos)
-      value = value.replace(/(\d{5})(\d)/, '$1-$2');
+    if (numbers.length > 2) {
+      numbers = numbers.replace(/^(\d{2})(\d+)/, '($1) $2');
     }
 
-    return value;
+    if (numbers.replace(/\D/g, '').length === 11) {
+      numbers = numbers.replace(/(\d{5})(\d{4})$/, '$1-$2');
+    }
+    else if (numbers.replace(/\D/g, '').length === 10) {
+      numbers = numbers.replace(/(\d{4})(\d{4})$/, '$1-$2');
+    }
+
+    return numbers;
   }
 }
