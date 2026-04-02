@@ -9,8 +9,8 @@ import { StorageUtils } from '../../../utils/StorageUtils';
 })
 export class ServiceOrderService {
   private apiUrl = environment.apiUrl;
-  private bearer = StorageUtils.getBearerToken();
-  private tenantId = StorageUtils.getTenantId();
+  private bearer = new StorageUtils().getBearerToken();
+  private tenantId = new StorageUtils().getTenantId();
   constructor(private http: HttpClient) {}
 
   getStatus(): Observable<any> {

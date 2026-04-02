@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CustomerService } from '../../services/customers/customer-service';
 import { MaskHelper } from '../../../helpers/MaskHelper';
 
 @Component({
   selector: 'app-customersform',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, FormsModule],
   templateUrl: './customersform.html',
   styleUrl: './customersform.css',
 })
@@ -48,6 +48,8 @@ export class Customersform {
     });
     this.isLoadingEditForm = false;
   }
+
+  filteredUsers() {}
 
   onPhoneInput() {
     const control = this.form.get('whatsapp');

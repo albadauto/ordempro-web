@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environments';
 import { Observable } from 'rxjs';
+import { StorageUtils } from '../../../utils/StorageUtils';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerService {
   private apiUrl = environment.apiUrl;
-  private bearer = localStorage.getItem('token');
+  private bearer = new StorageUtils().getBearerToken()
   constructor(private http: HttpClient) {}
 
   createCustomer(data: any): Observable<any> {
